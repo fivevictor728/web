@@ -2,21 +2,32 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>大樂透自動選號與對獎系統（Lotto）</title>
+    <title>大樂透自動選號與兌獎系統（Lotto）</title>
     <style>
         .lotto1{
             background-color: brown;
-            color: aquamarine;
+            color: rgb(201, 213, 209);
             font-size: 25px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
+            width: 9cap;
+            height: 3cap;
+            line-height: 3cap;
+        }
+        span{
+            background-color: aquamarine;
+            border-radius: 50%;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
         }
     </style>
 </head>
-<body style="font-size: 2cap;">
+<body style="font-size: 3cap;text-align: center;font-family: '標楷體', 'DFKai-SB', serif;background-color: bisque;">
 
-    <h1>🎰電機三乙劉子維_大樂透自動選號與對獎系統</h1>
+    <h1>🎰電機三乙劉子維 大樂透自動選號與兌獎系統</h1>
     <p><b>教學重點：</b>利用 id 屬性與 document.getElementById() 修改網頁內容</p>
 
     <!-- 宣告全域變數，用來記錄玩家選號與開獎號碼 -->
@@ -41,9 +52,10 @@
             }
         }
         userNumbers.sort((a, b) => a - b);
-        document.getElementById('my-numbers').innerText = '我的號碼：' + userNumbers.join(', ');
+        let o1 = userNumbers.map(n => '<span>' + n + '</span>').join(' ');
+        document.getElementById('my-numbers').innerHTML = '我的號碼：' +  o1;
     ">🎲 自動選號</button>
-
+   
     <hr> <!--[cite: 1] -->
 
     <!-- 第二區塊：電腦開獎區 -->
@@ -60,13 +72,14 @@
             }
         }
         winningNumbers.sort((a, b) => a - b);
-        document.getElementById('draw-numbers').innerText = '開獎號碼：' + winningNumbers.join(', ');
+        let o2 = winningNumbers.map(n => '<span>' + n + '</span>').join(' ');
+        document.getElementById('draw-numbers').innerHTML = '開獎號碼：' + o2;
     ">🎉 開始開獎</button>
 
     <hr> <!--[cite: 1] -->
 
     <!-- 第三區塊：對獎結果區 -->
-    <h3>3. 對獎結果</h3>
+    <h3>3. 兌獎結果</h3>
     <button class="lotto1"; onclick="
         if (userNumbers.length === 0 || winningNumbers.length === 0) {
             alert('請先點擊「自動選號」與「開始開獎」！');
@@ -82,13 +95,16 @@
                 }
             }
 
-            let resultText = '對中 ' + matchCount + ' 個號碼！';
+            let resultText = '本次共兌中了 ' + matchCount + ' 個號碼！';
             if (matchCount > 0) {
-                resultText += '（對中號碼：' + matchedList.join(', ') + '）';
+                resultText += '（兌中號碼：' + matchedList.join(' ,') + '）';alert('恭喜中獎!');
+            }
+            else{
+                alert('遺憾沒中獎...')
             }
 
             // 更新到指定 id 的元素中
-            document.getElementById('result-text').innerText = resultText;alert('恭喜中獎')
+            document.getElementById('result-text').innerText = resultText;
         }
     ">🔍 進行對獎</button>
 
