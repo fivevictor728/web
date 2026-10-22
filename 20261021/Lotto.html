@@ -11,9 +11,14 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            width: 9cap;
+            width: 10cap;
             height: 3cap;
             line-height: 3cap;
+            font-family: '標楷體', 'DFKai-SB', serif;
+        }
+        .lotto1:hover{
+            background-color: rgb(202, 77, 40);
+            transform: scale(1.05);
         }
         span{
             background-color: aquamarine;
@@ -22,14 +27,16 @@
             width: 50px;
             height: 50px;
             line-height: 50px;
+            border: 3px solid;
         }
     </style>
 </head>
-<body style="font-size: 3cap;text-align: center;font-family: '標楷體', 'DFKai-SB', serif;background-color: bisque;">
 
+<body style="font-size: 3cap;text-align: center;font-family: '標楷體', 'DFKai-SB', serif;background-color: bisque;">
+    
     <h1>🎰電機三乙劉子維 大樂透自動選號與兌獎系統</h1>
     <p><b>教學重點：</b>利用 id 屬性與 document.getElementById() 修改網頁內容</p>
-
+    
     <!-- 宣告全域變數，用來記錄玩家選號與開獎號碼 -->
     <script>
         let userNumbers = [];
@@ -37,11 +44,12 @@
     </script>
     <hr> <!-- 水平分隔線 --> <!--[cite: 1] -->
 
+<div style="background-color: azure;padding: 20px;border-radius: 30px;margin: auto;width: 30cap;height: 12cap;">
     <!-- 第一區塊：玩家選號區 -->
     <h3>1. 我的彩券號碼</h3>
     <!-- 設定 id="my-numbers" 供 JS 更新文字 -->
-    <p id="my-numbers">請點擊下方按鈕進行選號</p>
-    
+    <p id="my-numbers" style="min-height: 58px";>請點擊下方按鈕進行選號</p>
+   
     <!-- 按鈕點擊時，直接執行內嵌的 JavaScript 程式碼（不使用 custom function） -->
     <button class="lotto1"; onclick="
         userNumbers = [];
@@ -55,13 +63,14 @@
         let o1 = userNumbers.map(n => '<span>' + n + '</span>').join(' ');
         document.getElementById('my-numbers').innerHTML = '我的號碼：' +  o1;
     ">🎲 自動選號</button>
-   
+</div> 
     <hr> <!--[cite: 1] -->
+<div style="background-color: azure;padding: 20px;border-radius: 30px;margin: auto;width: 30cap;height: 12cap;">
 
     <!-- 第二區塊：電腦開獎區 -->
     <h3>2. 本期開獎號碼</h3>
     <!-- 設定 id="draw-numbers" 供 JS 更新文字 -->
-    <p id="draw-numbers">等待開獎中...</p>
+    <p id="draw-numbers" style="min-height: 58px;">等待開獎中...</p>
     
     <button class="lotto1"; onclick="
         winningNumbers = [];
@@ -75,8 +84,9 @@
         let o2 = winningNumbers.map(n => '<span>' + n + '</span>').join(' ');
         document.getElementById('draw-numbers').innerHTML = '開獎號碼：' + o2;
     ">🎉 開始開獎</button>
-
+</div>
     <hr> <!--[cite: 1] -->
+<div style="background-color: azure;padding: 20px;border-radius: 30px;margin: auto;width: 30cap;height: 12cap;">
 
     <!-- 第三區塊：對獎結果區 -->
     <h3>3. 兌獎結果</h3>
@@ -97,7 +107,8 @@
 
             let resultText = '本次共兌中了 ' + matchCount + ' 個號碼！';
             if (matchCount > 0) {
-                resultText += '（兌中號碼：' + matchedList.join(' ,') + '）';alert('恭喜中獎!');
+                resultText += '（兌中號碼：' + matchedList.join(' ,') + '）';
+                alert('恭喜中獎!');
             }
             else{
                 alert('遺憾沒中獎...')
@@ -107,9 +118,10 @@
             document.getElementById('result-text').innerText = resultText;
         }
     ">🔍 進行對獎</button>
-
     <!-- 顯示對獎結果的標籤 (id="result-text") -->
     <p id="result-text" style="font-weight: bold;"></p>
+</div>
+<p> </p>
     <button class="lotto1"; onclick="window.location.reload(); ">🎲 重新開始</button>
 </body>
 </html>
