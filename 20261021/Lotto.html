@@ -7,7 +7,7 @@
         .lotto1{
             background-color: brown;
             color: rgb(201, 213, 209);
-            font-size: 25px;
+            font-size: 28px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -21,13 +21,13 @@
             transform: scale(1.05);
         }
         span{
-            background-color: aquamarine;
+            background-color: rgb(74, 238, 113);
             border-radius: 50%;
             display: inline-block;
             width: 50px;
             height: 50px;
             line-height: 50px;
-            border: 3px solid;
+            border: 2px solid;
         }
     </style>
 </head>
@@ -44,7 +44,7 @@
     </script>
     <hr> <!-- 水平分隔線 --> <!--[cite: 1] -->
 
-<div style="background-color: azure;padding: 20px;border-radius: 30px;margin: auto;width: 30cap;height: 12cap;">
+<div style="background-color: azure;padding: 10px;border-radius: 30px;margin: auto;width: 36cap;height: 13cap;">
     <!-- 第一區塊：玩家選號區 -->
     <h3>1. 我的彩券號碼</h3>
     <!-- 設定 id="my-numbers" 供 JS 更新文字 -->
@@ -65,7 +65,7 @@
     ">🎲 自動選號</button>
 </div> 
     <hr> <!--[cite: 1] -->
-<div style="background-color: azure;padding: 20px;border-radius: 30px;margin: auto;width: 30cap;height: 12cap;">
+<div style="background-color: azure;padding: 10px;border-radius: 30px;margin: auto;width: 36cap;height: 13cap;">
 
     <!-- 第二區塊：電腦開獎區 -->
     <h3>2. 本期開獎號碼</h3>
@@ -86,7 +86,7 @@
     ">🎉 開始開獎</button>
 </div>
     <hr> <!--[cite: 1] -->
-<div style="background-color: azure;padding: 20px;border-radius: 30px;margin: auto;width: 30cap;height: 12cap;">
+<div style="background-color: azure;padding: 10px;border-radius: 30px;margin: auto;width: 36cap;height: 12cap;">
 
     <!-- 第三區塊：對獎結果區 -->
     <h3>3. 兌獎結果</h3>
@@ -105,9 +105,9 @@
                 }
             }
 
-            let resultText = '本次共兌中了 ' + matchCount + ' 個號碼！';
+            let resultText = '本次共兌中了' + matchCount + '個號碼！';
             if (matchCount > 0) {
-                resultText += '（兌中號碼：' + matchedList.join(' ,') + '）';
+                resultText += '(兌中號碼：' + matchedList.join('、') + ')';
                 alert('恭喜中獎!');
             }
             else{
@@ -122,6 +122,9 @@
     <p id="result-text" style="font-weight: bold;"></p>
 </div>
 <p> </p>
+    <hr> <!--[cite: 1] -->
+<p> </p>
     <button class="lotto1"; onclick="window.location.reload(); ">🎲 重新開始</button>
+<p> </p>
 </body>
 </html>
