@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align: center;background-color: antiquewhite;">
+<title>電機三乙劉子維</title>
+<h1>My First JavaScript</h1>
+<p>這是一個小程式</p>
+
+<div>
+    <div >
+      <!-- 預設顯示第一張圖片 -->
+      <img id="myImage" src="pic/pic_bulboff.gif" alt="圖片" width="200">
+    </div>
+    <!-- 1. 將兩個按鈕給予不同的 id (btn1 與 btn2) -->
+    <button id="btn1" style="width: 10cap;height: 5cap;border-radius: 30px;">1F</button>
+    <button id="btn2" style="width: 10cap;height: 5cap;border-radius: 30px;">2F</button>
+  </div>
+
+<script>
+ const imgElement = document.getElementById('myImage');
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+
+    // 定義圖片路徑
+    const img1 = "pic/pic_bulboff.gif";
+    const img2 = "pic/pic_bulbon.gif";
+
+    // 開關狀態 (true 代表第一張圖，false 代表第二張圖)
+    let isFirstImage = true;
+
+    // 3. 定義切換圖片的函式 (toggleImage)
+    function toggleImage() {
+      if (isFirstImage) {
+        imgElement.src = img2;
+      } else {
+        imgElement.src = img1;
+      }
+      // 每次點擊後將狀態反轉
+      isFirstImage = !isFirstImage;
+    }
+
+    // 4. 為兩個按鈕都綁定相同的切換動作
+    btn1.addEventListener('click', toggleImage);
+    btn2.addEventListener('click', toggleImage);
+</script>
+
+
+</body>
+</html>
+
